@@ -65,7 +65,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
-    mysql (2.9.1-x86-mingw32)
+    mysql (2.9.1)
     paperclip (3.5.3)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
