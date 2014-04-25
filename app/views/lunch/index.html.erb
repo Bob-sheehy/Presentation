@@ -1,0 +1,33 @@
+<h1 align="center">Lunch Deals</h1>
+<% if notice %> 
+<p id="notice"><%= notice %>
+</p> 
+<% end %>
+<% cache ['home', Deal.new] do %>
+<% @deals.each do |deal| %> 
+<% cache ['entry', deal] do %>
+
+<div class="entry"> 
+<table>
+<tr>
+<td>
+<%= image_tag(deal.image_url) %> 
+</td>
+<h1>
+<%= deal.name %></h1></br><td> <%= sanitize(deal.description) %> </td>
+</tr>
+</table>
+<div class="price_line"> 
+
+<span class="price">
+<h2><%= number_to_currency(deal.price,:unit => "€") %></h2>
+</span>
+<h3 align="center"><%= link_to 'View Deal', deal %></h3>
+
+
+ </div>
+
+ </div>
+ <% end %>
+   <% end %>
+   <% end %>

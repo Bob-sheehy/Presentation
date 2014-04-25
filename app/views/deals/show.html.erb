@@ -1,0 +1,47 @@
+<!-- Rubydoc.info. 2014. Documentation for geocoder (1.1.9). [online] Available at: http://rubydoc.info/gems/geocoder/1.1.9/frames [Accessed: 6 Apr 2014].-->
+
+<!--This is a comment. Comments are not displayed in the browser-->
+
+
+
+<p>
+  
+  <h1><%= @deal.name %></h1>
+</p>
+
+<p>
+ <h2> <%= @deal.category %></h2>
+</p>
+
+
+
+<p>
+  <%= image_tag(@deal.image_url) %></br>
+   <strong>Description:</strong>
+  <%= sanitize(@deal.description) %><div id="until2d"></div></br></br>
+</p>
+</br>
+</br>
+</br>
+<p>
+  <strong></strong>
+ <h1> <%= number_to_currency(@deal.price,:unit => "€") %></h1>
+</p>
+
+
+
+<p>
+  <strong>Location:</strong>
+  <%= @deal.address %>
+</p>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@deal.latitude}%2C#{@deal.longitude}" %>
+
+
+
+
+<p>
+  <strong>Terms:</strong>
+  <%= @deal.terms %>
+</p>
+
+

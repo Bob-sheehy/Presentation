@@ -1,0 +1,131 @@
+/* REf Book Ruby, S., Thomas, D. and Hansson, D. H. n.d. Agile web development with Rails 4.
+ *
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+#banner {
+  background: #E0E0E0;
+  padding: 8px;
+  border-bottom: 2px solid;
+  	border-radius: 8px;
+	  margin-bottom: 0.5em;
+  font: small-caps 55px/55px "Comic Sans MS";
+  color: black;
+  text-align: center;
+
+}
+#until2d {
+  width: 240px; 
+  height: 55px;
+    	border-radius: 8px;
+		    margin-top: 1.5em;
+					    margin-bottom: 1.5em;
+	text-align: center;
+	background-color: #6585E6;
+
+			padding: 0.5em;
+
+
+  	//font-size: 175%;
+
+  float: left;
+}
+
+#notice {
+  color: red !important;
+ // border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #f0f0f0;
+  text-align: center;
+  font: bold large sans-serif;
+  float: middle;
+  //align: centre;
+
+}
+#side1 { 
+float: left;
+//margin-bottom: 9em;
+    margin-top: 2.5em;
+    margin-right: 3em;
+
+  //border: 2px solid red;
+padding: 2em 1.5em; 
+width: 4em;
+background-color: #white;
+height: 80em;
+//background: #141;}
+
+#side2 { 
+float: right;
+//margin-bottom: 9em;
+    margin-top: 2.5em;
+
+ // border: 2px solid red;
+padding: .5em 1.5em; 
+width: 12em;
+background-color: #white;
+height: 80em;
+//background: #141;
+form, div {
+      display: inline;
+    }  
+ 
+    input {
+      font-size: small;
+    }
+ }
+ #cart {
+      font-size: smaller;
+      color:     black;
+
+      table {
+        border-top:    1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+    }
+  .order_form {
+  fieldset {
+    background: #efe;
+
+    legend {
+      color: #dfd;
+      background: #141;
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+    }
+  }
+
+  form {
+    label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
+    }
+
+    select, textarea, input {
+      margin-left: 0.5em;
+    }
+
+    .submit {
+      margin-left: 4em;
+    }
+
+    br {
+      display: none
+    }
+  }
+}

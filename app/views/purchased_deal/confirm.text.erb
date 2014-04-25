@@ -1,0 +1,26 @@
+<h3>Tenner Deals</h3> 
+<h1>Dear<b> <%= @order.first_name =%></b></h1>
+
+<p> Thank you for purchasing the following tenner deals: </p>
+<table> 
+<tr>
+<th colspan="2">Qty</th>
+<th>Description</th></tr>
+ <%= render @order.line_items =%> 
+ </table></br>
+<%= image_tag("/assets/qrcode.png", :alt => "rss feed") %>
+</br>
+<img src="assets/qrcode.png", alt: "Example Image" /></br>
+<%= image_tag("qrcode.ppg", :alt => "rss feed") %>
+<%= image_tag attachments['qrcode.png'].url, alt: 'My Photo',
+                                            class: 'photos' %>
+											<%= link_to image_tag( asset_path 'qrcode.png'), @root_url.to_s %>
+ <%= image_tag attachments['qrcode.png'].url %>
+<style type="text/css">
+body {
+    background: url(http://<%= @order %>/images/qrcode.png) top repeat-x #cfcfcf;
+}
+</style>
+<%= image_tag attachments['qrcode.png'].url, alt: 'qrcode', class: 'photo'%>
+<div class="mail"> 
+</div>

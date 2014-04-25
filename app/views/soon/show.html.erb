@@ -1,0 +1,6 @@
+<h3>nearby locations</h3>
+<ul>
+<% for deal in @deal.nearbys(10) %>
+   <li><%= link_to deal.address, deal %>(<%= deal.distance.round(2) %> miles)</li>
+<% end %>
+</ul>

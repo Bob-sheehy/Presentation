@@ -1,0 +1,81 @@
+
+</br></br>
+<h1>Listing Deals</h1>
+<h2> <%= link_to 'Create New Deal', new_deal_path %></h2>
+
+<table> 
+<% @deals.each do |deal| %> 
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+<td> <%= image_tag(deal.image_url, class: 'list_image') %> </td> 
+<td class="list_description"> 
+<dl> 
+<dt><%= deal.name %></dt> 
+<dd><%= truncate(strip_tags(deal.description), length: 80) %></dd>
+ </dl> 
+ </td> 
+ <td class="list_actions"> 
+ <%= link_to 'Show', deal %><br/> 
+ <%= link_to 'Edit', edit_deal_path(deal) %><br/> 
+ <%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %> </br>
+
+ </td> 
+ </tr>
+ <% end %> 
+ </table> <br />
+ <div id="BOB" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+ 
+ 
+ <!--   Api.highcharts.com. 2014. Highcharts API Reference. [online] Available at: http://api.highcharts.com/highcharts#Chart [Accessed: 6 Apr 2014].    -->
+
+ 
+ <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+ <script type="text/javascript">
+$(function () {
+        $('#BOB').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Total Deal Types'
+            },
+            subtitle: {
+                text: 'Source: Db deals table'
+            },
+            xAxis: {
+                categories: ['LUNCH', 'STUDENT', 'COMING SOON', 'FITNESS'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total Number',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+
+            credits: {
+                enabled: false
+            },
+            series: [{
+               name: 'Deal',
+               data: [<%= Deal.where(:category => 'Lunch').count %>, <%= Deal.where(:category => 'Student Deal').count %>, 
+			   <%= Deal.where(:category => 'Coming Soon').count %>, <%= Deal.where(:category => 'Fitness').count %>]
+            }]
+        });
+    });
+</script>

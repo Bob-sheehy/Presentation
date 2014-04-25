@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+<h3>Tenner Deals</h3> 
+<h1>Dear<b> <%= @order.first_name =%></b></h1>
+<p> This is just to let you you purchased the following deals: </p>
+<table> 
+<tr>
+<th colspan="2">Qty</th>
+<th>Description</th></tr>
+ <%= render @order.line_items =%> 
+ </table>
+ <%= link_to image_tag( asset_path 'qrcode.png'), @root_url.to_s %>
+ <%= image_tag attachments['qrcode.png'].url %>
+<%= image_tag("assets/qrcode.png", :alt => "rss feed") %>
+<%= image_tag("/assets/qrcode.png") %>
+
+</br>
+<img src="assets/qrcode.png" alt="rss feed" />
+<%= image_tag("images/qrcode.png", :alt => "rss feed") %>
+body {
+    background: url(http://<%= @order %>/images/qrcode.png) top repeat-x #cfcfcf;
+}
+</style>
+</br>
+<%= image_tag attachments['app/assets/images/qrcode.png'], :alt => "qrcode" %>
+<%= image_tag attachments['qrcode.png']. url => "app/assets/images/qrcode.png" %>
+ <%= image_tag attachments['qrcode.png'].url, alt: 'My Photo',
+                                            class: 'photos' %>
+ </body>
+</html>

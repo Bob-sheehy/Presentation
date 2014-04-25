@@ -1,0 +1,62 @@
+<h1>Lunch#show</h1>
+<p>Find me in app/views/lunch/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @deal.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @deal.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @deal.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @deal.image_url %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @deal.price %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @deal.value %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @deal.address %>
+</p>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@deal.latitude}%2C#{@deal.longitude}" %>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @deal.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @deal.longitude %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @deal.status %>
+</p>
+
+<p>
+  <strong>Terms:</strong>
+  <%= @deal.terms %>
+</p>
+
+<%= link_to 'Edit', edit_deal_path(@deal) %> |
+<%= link_to 'Back', deals_path %>

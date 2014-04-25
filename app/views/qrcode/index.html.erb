@@ -1,0 +1,44 @@
+<!-- Rubydoc.info. 2014. Documentation for rqrcode (0.4.2). [online] Available at: http://rubydoc.info/gems/rqrcode/0.4.2/frames [Accessed: 18 Jan 2014].-->
+
+<h1>Bobby QR Code working</h1>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+<table align="center">
+<% @qr.modules.each_index do |x| %>
+  <tr>  
+  <% @qr.modules.each_index do |y| %>
+   <% if @qr.dark?(x,y) %>
+    <td class="black"/>
+   <% else %>
+    <td class="white"/>
+   <% end %>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+<table align="left">
+<% @qr1.modules.each_index do |x| %>
+  <tr>  
+  <% @qr1.modules.each_index do |y| %>
+   <% if @qr1.dark?(x,y) %>
+    <td class="black"/>
+   <% else %>
+    <td class="white"/>
+   <% end %>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+<table align="right">
+<% @qr2.modules.each_index do |x| %>
+  <tr>  
+  <% @qr2.modules.each_index do |y| %>
+   <% if @qr2.dark?(x,y) %>
+    <td class="black"/>
+   <% else %>
+    <td class="white"/>
+   <% end %>
+  <% end %>
+  </tr>
+<% end %>
+</table>

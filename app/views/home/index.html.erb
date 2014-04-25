@@ -1,0 +1,32 @@
+
+
+<% if notice %> 
+<p id="notice"><%= notice %>
+</p> 
+<% end %>
+<% cache ['home', Deal.latest] do %>
+<% @deals.each do |deal| %> 
+<% cache ['entry', deal] do %>
+
+<div class="entry"> 
+<%= image_tag(deal.image_url) %> <h3>
+<%= deal.name %></h3> <%= sanitize(deal.description) %> 
+
+<div class="price_line"> 
+
+<span class="price">
+<%= number_to_currency(deal.price,:unit => "€") %>
+</span>
+<%= number_to_percentage(deal.saving, precision: 0) %></br>
+
+<%= link_to 'View Deal', deal %>
+<%= button_to 'Add to Cart', line_items_path(deal_id: deal),
+remote: true %>
+
+ </div>
+
+ </div>
+ <% end %>
+   <% end %>
+   <% end %>
+

@@ -1,0 +1,63 @@
+<!-- Rubydoc.info. 2014. Documentation for geocoder (1.1.9). [online] Available at: http://rubydoc.info/gems/geocoder/1.1.9/frames [Accessed: 12 Jan 2014].-->
+<!-- Highcharts.com. 2014. Highcharts - Interactive JavaScript charts for your webpage. [online] Available at: http://www.highcharts.com/ [Accessed: 6 Mar 2014]. -->
+<!-- Book Ruby, S., Thomas, D. and Hansson, D. H. n.d. Agile web development with Rails 4.    -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TennerDeals</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track", "Highcharts", "jquery-1.11.0" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= controller.controller_name %>'>
+
+<div id="banner"> 
+<%= image_tag("logo4.png") %> 
+</div> 
+<div id="columns"> 
+<div id="side" align="middle">
+<ul> 	
+
+    <%= link_to image_tag("/assets/home.png"), home_index_path %>&nbsp&nbsp&nbsp |&nbsp&nbsp&nbsp
+
+    <%= link_to image_tag("/assets/lunch.png"), lunch_index_path %> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+ 
+    <%= link_to image_tag("/assets/student.png"), student_index_path %> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+ <%= link_to image_tag("/assets/cs.png"), soon_index_path %> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+    <%= link_to image_tag("/assets/fitness.png"), fitness_index_path %>&nbsp&nbsp&nbsp
+	
+         <a><%= link_to 'Sign Up', new_newsletter_path %></a>
+ </ul> 
+</div>  
+<div id="side1", align="left"> 
+ <% if session[:admin_user_id] %> 
+  </br></br></br></br></br>
+ <%= link_to 'Orders', orders_path %> </br>
+ <%= link_to 'Deals', deals_path %></br>
+ <%= link_to 'Users', admin_users_path %> </br>
+  <%= link_to 'signup', newsletters_path %> </br>
+  <%= link_to 'admin', admin_index_path %> </br></br>
+
+  
+ <%= button_to 'Logout', logout_path, method: :delete %>
+ <% end %>
+ </div>
+ <div id="side2">
+ </br></br></br></br>
+  <% if @cart %>
+ <div id="cart"
+   <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+   <%= render @cart %>
+   <% end %>
+   <% end %>
+
+ </div>
+ </div>
+<div id="main">
+<%= yield %> 
+</div> 
+</div>
+</body>
+<html/>

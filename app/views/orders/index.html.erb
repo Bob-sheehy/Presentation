@@ -1,0 +1,97 @@
+<h1>Listing orders</h1>
+<div id="container" style="width:568px; height:300px; margin: 0 auto"></div></br>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>Term and condition</th>
+      <th>Pay type</th>
+	  <th>Date Bought</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.first_name %></td>
+        <td><%= order.last_name %></td>
+        <td><%= order.age %></td>
+        <td><%= order.gender %></td>
+        <td><%= order.address %></td>
+        <td><%= order.email %></td>
+        <td><%= order.status %></td>
+        <td><%= order.term_and_condition %></td>
+        <td><%= order.pay_type %></td>
+	    <td><%= order.created_at %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<br><br>
+<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+ <script type="text/javascript">
+$(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Total User'
+            },
+            subtitle: {
+                text: 'Source: Unknown'
+            },
+            xAxis: {
+                categories: ['Male', 'Female'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total Number',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+
+            credits: {
+                enabled: false
+            },
+            series: [{
+               name: 'Orders',
+               data: [<%= Order.where(:gender => 'Male').count %>, <%= Order.where(:gender => 'Female').count %>]
+            }]
+        });
+    });
+</script>
